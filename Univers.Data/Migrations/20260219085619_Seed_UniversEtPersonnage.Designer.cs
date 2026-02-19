@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Univers.Data.Context;
 
@@ -11,9 +12,11 @@ using Univers.Data.Context;
 namespace Univers.Data.Migrations
 {
     [DbContext(typeof(UniversContext))]
-    partial class UniversContextModelSnapshot : ModelSnapshot
+    [Migration("20260219085619_Seed_UniversEtPersonnage")]
+    partial class Seed_UniversEtPersonnage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,32 +72,6 @@ namespace Univers.Data.Migrations
                     b.HasKey("FilmId");
 
                     b.ToTable("Films");
-
-                    b.HasData(
-                        new
-                        {
-                            FilmId = 1,
-                            DateSortie = new DateOnly(2021, 7, 9),
-                            Duree = 121,
-                            Etoile = (byte)3,
-                            Titre = "Black Widow"
-                        },
-                        new
-                        {
-                            FilmId = 2,
-                            DateSortie = new DateOnly(2012, 5, 4),
-                            Duree = 98,
-                            Etoile = (byte)5,
-                            Titre = "Avengers"
-                        },
-                        new
-                        {
-                            FilmId = 3,
-                            DateSortie = new DateOnly(2003, 5, 3),
-                            Duree = 110,
-                            Etoile = (byte)5,
-                            Titre = "Spiderman"
-                        });
                 });
 
             modelBuilder.Entity("Univers.Domain.Entities.Franchise", b =>

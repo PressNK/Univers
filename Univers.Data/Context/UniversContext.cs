@@ -8,6 +8,8 @@ namespace Univers.Data.Context;
 /// </summary>
 public class UniversContext : DbContext
 {
+    private bool _executerSeed = false;
+    
     /// <summary>
     /// Constructeur pour la migration
     /// </summary>
@@ -39,6 +41,7 @@ public class UniversContext : DbContext
             {
                 //La variable n'est pas vide, la chaine de connexion est appliquée
                 optionsBuilder.UseSqlServer(chaineConnexion);
+                _executerSeed = true;
             }
             else
             {
@@ -100,6 +103,103 @@ public class UniversContext : DbContext
                 .IsUnicode(false)
                 .HasMaxLength(100);
         });
+        
+        if (_executerSeed == true)
+        {
+            Seed(modelBuilder);
+        }
+    }
+    
+    /// <summary>
+    /// Méthode qui s'occupe de la création des données
+    /// </summary>
+    private void Seed(ModelBuilder modelBuilder)
+    {
+        //Les données à ajouter
+        //Les données à ajouter
+        Franchise[] franchises =
+        [
+            new Franchise()
+            {
+                FranchiseId = 1,
+                Nom = "Marvel",
+                AnneeCreation = 1939,
+                SiteWeb = "https://www.marvel.com",
+                Proprietaire = "Disney"
+            },
+            new Franchise()
+            {
+                FranchiseId = 2,
+                Nom = "DC Comics",
+                AnneeCreation = 1934,
+                SiteWeb = "https://www.dc.com",
+                Proprietaire = "Warner Bros"
+            },
+        ];
+
+        Personnage[] personnages =
+        [
+            new Personnage()
+            {
+                PersonnageId = 1,
+                Nom = "Spiderman",
+                IdentiteReelle = "Peter Parker",
+                DateNaissance = new DateOnly(1980, 12,01),
+                EstVilain = false,
+                FranchiseId = 1
+            },
+            new Personnage()
+            {
+                PersonnageId = 2,
+                Nom = "Iron Man",
+                IdentiteReelle = "Tony Stark",
+                DateNaissance = new DateOnly(1970,11,12),
+                EstVilain = false,
+                FranchiseId = 1
+            },
+            new Personnage()
+            {
+                PersonnageId = 3,
+                Nom = "Batman",
+                IdentiteReelle = "Bruce Wayne",
+                DateNaissance = new DateOnly(1966,03,04),
+                EstVilain = false,
+                FranchiseId = 2
+            },
+        ];
+        
+        Film[] films =
+        [
+            new Film()
+            {
+                FilmId = 1, 
+                Titre = "Black Widow",
+                DateSortie = new DateOnly(2021, 07, 09),
+                Etoile = 3,
+                Duree = 121
+            },
+            new Film()
+            {
+                FilmId = 2,
+                Titre = "Avengers",
+                DateSortie =  new DateOnly(2012, 05, 04),
+                Etoile = 5, 
+                Duree = 98
+            },
+            new Film()
+            {
+                FilmId = 3,
+                Titre = "Spiderman",
+                DateSortie = new DateOnly(2003, 05, 03),
+                Etoile = 5,
+                Duree = 110
+            },
+        ];
+
+        //Ajout dans les tables
+        modelBuilder.Entity<Franchise>().HasData(franchises);
+        modelBuilder.Entity<Personnage>().HasData(personnages);
+        modelBuilder.Entity<Film>().HasData(films);
     }
 
     public DbSet<Personnage> Personnages { get; set; }
