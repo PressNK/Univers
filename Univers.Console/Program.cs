@@ -41,12 +41,10 @@ do
 switch (optionChoisie)
 {
     case 1:
-        Console.WriteLine("Ajout des données de l'univers!");
-        host.Services.GetRequiredService<AjouterDonnees>().AjouterUnivers();
-        break;
-    case 2:
         Console.WriteLine("Compléter l'ajout des données de l'univers!");
         host.Services.GetRequiredService<AjouterDonnees>().CompleterUnivers();
+        break;
+    case 2:
         break;
     case 3:
         break;
