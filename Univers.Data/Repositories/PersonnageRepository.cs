@@ -1,4 +1,5 @@
-﻿using Univers.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Univers.Data.Context;
 using Univers.Domain.Entities;
 using Univers.Domain.Repositories; 
 
@@ -29,5 +30,14 @@ public class PersonnageRepository : BaseRepo<Personnage>, IPersonnageRepository
                 select lqPersonnage).ToList();
 
         return personnages;
+    }
+    
+    public Personnage? ObtenirAvecInclude(int personnageId)
+    {
+        Personnage? pAvecInclude =
+            (from lqPersonnage in _dbContext.Personnages.Include(p => p.Franchise)
+                where lqPersonnage.PersonnageId == 1
+                select lqPersonnage).FirstOrDefault();
+        return pAvecInclude;
     }
 }
