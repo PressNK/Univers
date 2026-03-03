@@ -135,6 +135,14 @@ public class UniversContext : DbContext
                 SiteWeb = "https://www.dc.com",
                 Proprietaire = "Warner Bros"
             },
+            new Franchise()
+            {
+                FranchiseId = 3,
+                Nom = "Teenage mutant ninja turtles",
+                AnneeCreation = 1984,
+                SiteWeb = "https://www.teenagemutantninjaturtles.com",
+                Proprietaire = "Paramount"
+            }
         ];
 
         Personnage[] personnages =

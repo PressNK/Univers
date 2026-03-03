@@ -150,6 +150,14 @@ namespace Univers.Data.Migrations
                             Nom = "DC Comics",
                             Proprietaire = "Warner Bros",
                             SiteWeb = "https://www.dc.com"
+                        },
+                        new
+                        {
+                            FranchiseId = 3,
+                            AnneeCreation = (short)1984,
+                            Nom = "Teenage mutant ninja turtles",
+                            Proprietaire = "Paramount",
+                            SiteWeb = "https://www.teenagemutantninjaturtles.com"
                         });
                 });
 
