@@ -21,6 +21,16 @@ public class PersonnageRepository : BaseRepo<Personnage>, IPersonnageRepository
 
         return personnage;
     }
+    
+    public Personnage? Chercher(int personnageId)
+    {
+        Personnage? personnage =
+            (from lqPersonnage in _dbContext.Personnages
+                where lqPersonnage.PersonnageId == personnageId
+                select lqPersonnage).FirstOrDefault();
+
+        return personnage;
+    }
 
     public List<Personnage> ObtenirParFranchise(int franchiseId)
     {
