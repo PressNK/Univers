@@ -13,8 +13,11 @@ public class VenteFranchiseConsole
         _venteFranchise = venteFranchise;
     }
     
-    public void VendreFranchise()
+    public void VendreUneFranchise()
     {
+        System.Console.WriteLine("------ VENDRE UNE FRANCHISE ------");
+        System.Console.WriteLine();
+        
         int franchideVenduId = AideConsole.DemanderEntier("Entrez l'ID de la franchise à vendre :");
         string nomProprietaire = AideConsole.DemanderString("Entrez le nom du propriétaire de la nouvelle franchise :", true)!;
         
@@ -31,7 +34,7 @@ public class VenteFranchiseConsole
                 System.Console.WriteLine($"Une erreur est survenue lors de la vente de la franchise ayant l'ID: {franchideVenduId}.");
                 break;
             default:
-                throw new NotImplementedException($"La méthode {nameof(VendreFranchise)} n'implémente pas la valeur {statut} du type {typeof(StatutVenteFranchise)}");
+                throw new NotImplementedException($"La méthode {nameof(VendreUneFranchise)} n'implémente pas la valeur {statut} du type {typeof(StatutVenteFranchise)}");
         }
         
         

@@ -14,6 +14,9 @@ public class SupprimerPersonnageConsole
     
     public void SupprimerUnPersonnage()
     {
+	    System.Console.WriteLine("------ SUPPRIMER UN PERSONNAGE ------");
+	    System.Console.WriteLine();
+	    
 	    int personnageId = AideConsole.DemanderEntier("Entrez l'identifiant du personnage : ");
 	    StatutSuppression statut = _supprimerPersonnage.Execute(personnageId);
 	    switch (statut)

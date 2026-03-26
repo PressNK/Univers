@@ -41,30 +41,6 @@ var host = Host.CreateDefaultBuilder(args)
     .Build();
 
 
-List<Personnage> personnages;
-
-using (UniversContext db = new UniversContext())
-{
-    personnages =
-        (from lqPersonnage in db.Personnages
-                .Include(p => p.Franchise) //Indique que la propriété Franchise aura une valeur
-                .Include(p => p.DistributionListe) //Indique que la propriété Distribution ne sera pas vide
-            select
-                lqPersonnage).ToList();
-}
-//Fin du contexte
-
-foreach (Personnage personnage in personnages)
-{
-    Console.WriteLine($"Nom personnage : {personnage.Nom}");
-    Console.WriteLine($"Nom Franchise : {personnage.Franchise.Nom}");
-
-    foreach (Distribution distribution in personnage.DistributionListe)
-    {
-        Console.WriteLine($"Acteur : {distribution.Acteur}");
-    }
-}
-
 //Accueillir l'utilisateur avec les options
 //...
 int optionChoisie;
@@ -104,7 +80,7 @@ do
             break;
         case 7:
             var venteFranchiseConsole = host.Services.GetRequiredService<VenteFranchiseConsole>();
-            venteFranchiseConsole.VendreFranchise();
+            venteFranchiseConsole.VendreUneFranchise();
             break;
         default:
             Console.WriteLine("Scénario non reconnu, veuillez réessayer.");

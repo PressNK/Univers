@@ -15,6 +15,8 @@ internal class AjouterPersonnageConsole
 
     public void AjouterUnPersonnage()
     {
+        System.Console.WriteLine("------ AJOUTER UN PERSONNAGE ------");
+        System.Console.WriteLine();
         CreerPersonnageDto personnage = new();
 
         personnage.Nom = AideConsole.DemanderString("Entrez le nom du personnage : ", true)!;

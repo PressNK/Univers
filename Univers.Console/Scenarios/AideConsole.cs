@@ -41,6 +41,7 @@ internal class AideConsole
         }
         else
         {
+            System.Console.Write(message);
             var r = System.Console.ReadLine()?.Trim();
             result = string.IsNullOrEmpty(r) ? null : r;
         }
