@@ -1,14 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Univers.Application.Dtos;
+using Univers.Application.Dtos.Validateurs;
 using Univers.Application.UseCases;
 using Univers.Application.UseCases.Implementations;
 using Univers.Console.Extensions;
 using Univers.Console.Scenarios;
 using Univers.Data.Context;
 using Univers.Data.Repositories;
-using Univers.Domain.Entities;
 using Univers.Domain.Repositories;
 
 var host = Host.CreateDefaultBuilder(args)
@@ -19,7 +21,7 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddTransient<IFilmRepository, FilmRepository>();
         services.AddTransient<IFranchiseRepository, FranchiseRepository>();
         services.AddTransient<IPersonnageRepository, PersonnageRepository>();
-        
+
         //Scénarios d'utilisation
         services.AddTransient<AjouterDonnees>();
         services.AddTransient<MiseAJourDonnees>();
@@ -29,14 +31,20 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddTransient<SupprimerPersonnageConsole>();
         services.AddTransient<VenteFranchiseConsole>();
 
-        
+
         //UseCase
         services.AddTransient<IAjouterPersonnage, AjouterPersonnage>();
         services.AddTransient<ISupprimerPersonnage, SupprimerPersonnage>();
         services.AddTransient<IVenteFranchise, VenteFranchise>();
         
+        // Autres dépendances 
+        services.AddValidatorsFromAssemblyContaining<CreerPersonnageDtoValidateur>();
+
         services.AddDbContext<UniversContext>(options =>
             options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
+        
+        // .resx
+        services.AddLocalization();
     })
     .Build();
 

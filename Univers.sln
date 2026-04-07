@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.Domain", "Univers.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.Application", "Univers.Application\Univers.Application.csproj", "{96E81653-6742-4A0A-A0F2-730B483B22BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1F37864D-98A6-4353-A164-9478B9A04EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.UnitTests", "Univers.UnitTests\Univers.UnitTests.csproj", "{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,8 +38,13 @@ Global
 		{96E81653-6742-4A0A-A0F2-730B483B22BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96E81653-6742-4A0A-A0F2-730B483B22BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96E81653-6742-4A0A-A0F2-730B483B22BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C7C8681E-CDED-481F-BD17-1087D4BE9EB2} = {34168CB5-1D81-410F-964B-C2836B83F0B5}
+		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD} = {1F37864D-98A6-4353-A164-9478B9A04EA8}
 	EndGlobalSection
 EndGlobal
