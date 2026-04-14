@@ -16,7 +16,7 @@ public class AjouterPersonnage : IAjouterPersonnage
         _validateurPersonnage = validateurPersonnage;
     }
 
-    public void Execute(CreerPersonnageDto personnageDto)
+    public int Execute(CreerPersonnageDto personnageDto)
     {
         //Validations de CreerPersonnageDto ...
         _validateurPersonnage.ValidateAndThrow(personnageDto);
@@ -31,5 +31,7 @@ public class AjouterPersonnage : IAjouterPersonnage
         };
 
         _personnageRepository.Ajouter(personnage, enregistrer: true);
+        
+        return personnage.PersonnageId;
     }
 }

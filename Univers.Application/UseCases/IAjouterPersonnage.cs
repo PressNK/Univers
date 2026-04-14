@@ -4,5 +4,5 @@ namespace Univers.Application.UseCases;
 
 public interface IAjouterPersonnage
 {
-    void Execute(CreerPersonnageDto personnageDto);
+    int Execute(CreerPersonnageDto personnageDto);
 }

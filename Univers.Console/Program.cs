@@ -5,11 +5,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Univers.Application.Dtos;
 using Univers.Application.Dtos.Validateurs;
+using Univers.Application.Extensions;
 using Univers.Application.UseCases;
 using Univers.Application.UseCases.Implementations;
 using Univers.Console.Extensions;
 using Univers.Console.Scenarios;
 using Univers.Data.Context;
+using Univers.Data.Extensions;
 using Univers.Data.Repositories;
 using Univers.Domain.Repositories;
 
@@ -17,10 +19,7 @@ var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
     {
         //Repository
-        services.AddTransient<IDistributionRepository, DistributionRepository>();
-        services.AddTransient<IFilmRepository, FilmRepository>();
-        services.AddTransient<IFranchiseRepository, FranchiseRepository>();
-        services.AddTransient<IPersonnageRepository, PersonnageRepository>();
+        services.EnregistrerRepositories();
 
         //Scénarios d'utilisation
         services.AddTransient<AjouterDonnees>();
@@ -33,12 +32,9 @@ var host = Host.CreateDefaultBuilder(args)
 
 
         //UseCase
-        services.AddTransient<IAjouterPersonnage, AjouterPersonnage>();
-        services.AddTransient<ISupprimerPersonnage, SupprimerPersonnage>();
-        services.AddTransient<IVenteFranchise, VenteFranchise>();
-        
+        services.EnregistrerUseCases();
         // Autres dépendances 
-        services.AddValidatorsFromAssemblyContaining<CreerPersonnageDtoValidateur>();
+        services.EnregistrerValidations();
 
         services.AddDbContext<UniversContext>(options =>
             options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));

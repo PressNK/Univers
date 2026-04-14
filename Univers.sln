@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1F37864D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.UnitTests", "Univers.UnitTests\Univers.UnitTests.csproj", "{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.Generateurs", "Univers.Generateurs\Univers.Generateurs.csproj", "{D92F4DCD-D495-4DA2-A429-9D919C6CE372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.IntegrationTests", "Univers.IntegrationTests\Univers.IntegrationTests.csproj", "{A166E47D-0481-4A48-B370-DD6B3E7A35DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,14 @@ Global
 		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D92F4DCD-D495-4DA2-A429-9D919C6CE372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D92F4DCD-D495-4DA2-A429-9D919C6CE372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D92F4DCD-D495-4DA2-A429-9D919C6CE372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D92F4DCD-D495-4DA2-A429-9D919C6CE372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C7C8681E-CDED-481F-BD17-1087D4BE9EB2} = {34168CB5-1D81-410F-964B-C2836B83F0B5}
