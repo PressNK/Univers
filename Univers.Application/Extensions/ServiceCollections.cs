@@ -13,6 +13,9 @@ public static class ServiceCollections
         services.AddTransient<ISupprimerPersonnage, SupprimerPersonnage>();
         services.AddTransient<IVenteFranchise, VenteFranchise>();
         services.AddTransient<IObtenirPersonnage, ObtenirPersonnage>();
+        services.AddTransient<IObtenirFilmsAVenir, ObtenirFilmsAVenir>();
+        services.AddTransient<IInsererFilm, InsererFilm>();
+        services.AddTransient<IObtenirFilm, ObtenirFilm>();
     }
 
     public static void EnregistrerValidations(this IServiceCollection services)

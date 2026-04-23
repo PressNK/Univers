@@ -2,22 +2,23 @@
 using Univers.Application.Dtos;
 using Univers.Domain.Entities;
 using Univers.Domain.Repositories;
+using Univers.Domain.ServicesExternes;
 
 namespace Univers.Application.UseCases.Implementations;
-
-public class InsererFilm
+public class InsererFilm : IInsererFilm
 {
     private readonly IFilmRepository _filmRepository;
     private readonly IValidator<InsererFilmDto> _validateurFilm;
+    private readonly IFilmsVenirClient _filmsVenirClient;
 
-    public InsererFilm(IFilmRepository filmRepository,
-        IValidator<InsererFilmDto> validateurFilm)
+    public InsererFilm(IFilmRepository filmRepository, IValidator<InsererFilmDto> validateurFilm, IFilmsVenirClient filmsVenirClient)
     {
         _filmRepository = filmRepository;
         _validateurFilm = validateurFilm;
+        _filmsVenirClient = filmsVenirClient;
     }
 
-    public int Execute(InsererFilmDto filmDto)
+    public async Task<int> Execute(InsererFilmDto filmDto)
     {
         _validateurFilm.ValidateAndThrow(filmDto);
 
@@ -43,6 +44,12 @@ public class InsererFilm
             };
 
             _filmRepository.Ajouter(film, enregistrer: true);
+
+            if(film.DateSortie > DateOnly.FromDateTime(DateTime.Now)) 
+            {
+                await _filmsVenirClient.AjouterFilmVenir(film);
+            }
+
             return film.FilmId;
         }
     }

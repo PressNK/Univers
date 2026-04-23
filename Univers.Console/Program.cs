@@ -13,7 +13,10 @@ using Univers.Console.Scenarios;
 using Univers.Data.Context;
 using Univers.Data.Extensions;
 using Univers.Data.Repositories;
+using Univers.Domain.Entities;
 using Univers.Domain.Repositories;
+using Univers.Domain.ServicesExternes;
+using Univers.FilmsService;
 
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
@@ -29,6 +32,7 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddTransient<AjouterPersonnageConsole>();
         services.AddTransient<SupprimerPersonnageConsole>();
         services.AddTransient<VenteFranchiseConsole>();
+        services.AddTransient<FilmAVenirConsole>();
 
 
         //UseCase
@@ -41,6 +45,14 @@ var host = Host.CreateDefaultBuilder(args)
         
         // .resx
         services.AddLocalization();
+        
+        // UniversApi Configuration
+        UniversApiConfiguration config = new();
+        context.Configuration.Bind("UniversApi", config);
+        services.AddSingleton(config);
+        
+        // UniversApi Client
+        services.AddTransient<IFilmsVenirClient, FilmsVenirClient>();
     })
     .Build();
 
@@ -86,6 +98,11 @@ do
             var venteFranchiseConsole = host.Services.GetRequiredService<VenteFranchiseConsole>();
             venteFranchiseConsole.VendreUneFranchise();
             break;
+        case 8:
+            var filmAVenir2 = host.Services.GetRequiredService<FilmAVenirConsole>();
+            await filmAVenir2.AjouterUnFilm();
+            break;
+
         default:
             Console.WriteLine("Scénario non reconnu, veuillez réessayer.");
             break;

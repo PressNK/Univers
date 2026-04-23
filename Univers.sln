@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.Generateurs", "Univ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.IntegrationTests", "Univers.IntegrationTests\Univers.IntegrationTests.csproj", "{A166E47D-0481-4A48-B370-DD6B3E7A35DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univers.FilmsService", "Univers.FilmsService\Univers.FilmsService.csproj", "{A9C3F76E-C74B-43A1-BE8D-C26E51A8C71C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,9 +56,14 @@ Global
 		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A166E47D-0481-4A48-B370-DD6B3E7A35DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9C3F76E-C74B-43A1-BE8D-C26E51A8C71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C3F76E-C74B-43A1-BE8D-C26E51A8C71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C3F76E-C74B-43A1-BE8D-C26E51A8C71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C3F76E-C74B-43A1-BE8D-C26E51A8C71C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C7C8681E-CDED-481F-BD17-1087D4BE9EB2} = {34168CB5-1D81-410F-964B-C2836B83F0B5}
 		{7C3ADF67-B1A7-4249-9EAE-A76F20C7E2AD} = {1F37864D-98A6-4353-A164-9478B9A04EA8}
+		{A9C3F76E-C74B-43A1-BE8D-C26E51A8C71C} = {DFC4A52A-0FB8-429A-8D3D-331A8A30D1E1}
 	EndGlobalSection
 EndGlobal

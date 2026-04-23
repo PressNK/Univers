@@ -5,6 +5,8 @@ using Microsoft.Extensions.Hosting;
 using Univers.Application.Extensions;
 using Univers.Data.Context;
 using Univers.Data.Extensions;
+using Univers.Domain.ServicesExternes;
+using Univers.IntegrationTests.Mocks;
 
 namespace Univers.IntegrationTests;
 public class Startup
@@ -19,7 +21,9 @@ public class Startup
         services.EnregistrerRepositories();
         services.EnregistrerUseCases();
         services.EnregistrerValidations();
-        
+
+        services.AddTransient<IFilmsVenirClient>((serviceProvider) => new FilmsVenirClientMock().Object);
+
         services.AddScoped<UtilitaireBd>();
 
         services.AddDbContext<UniversContext>(

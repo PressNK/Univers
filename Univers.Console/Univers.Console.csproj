@@ -10,6 +10,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Univers.Application\Univers.Application.csproj" />
       <ProjectReference Include="..\Univers.Data\Univers.Data.csproj" />
+      <ProjectReference Include="..\Univers.FilmsService\Univers.FilmsService.csproj" />
     </ItemGroup>
 
     <ItemGroup>
