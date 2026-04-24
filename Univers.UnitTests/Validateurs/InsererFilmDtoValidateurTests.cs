@@ -1,4 +1,4 @@
-﻿﻿using FluentAssertions;
+﻿using FluentAssertions;
 using FluentValidation.TestHelper;
 using Microsoft.Extensions.Localization;
 using Moq;
