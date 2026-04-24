@@ -1,8 +1,7 @@
-﻿using Flurl;
-using Flurl.Http;
-using Univers.FilmsService.Models;
+﻿using Flurl.Http;
 using Univers.Domain.Entities;
 using Univers.Domain.ServicesExternes;
+using Univers.FilmsService.Models;
 
 namespace Univers.FilmsService;
 public class FilmsVenirClient :  IFilmsVenirClient
