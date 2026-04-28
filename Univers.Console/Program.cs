@@ -17,6 +17,7 @@ using Univers.Domain.Entities;
 using Univers.Domain.Repositories;
 using Univers.Domain.ServicesExternes;
 using Univers.FilmsService;
+using Univers.RapportService.Services;
 
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
@@ -50,6 +51,9 @@ var host = Host.CreateDefaultBuilder(args)
         UniversApiConfiguration config = new();
         context.Configuration.Bind("UniversApi", config);
         services.AddSingleton(config);
+        
+        // Importation Perssonage
+        services.AddTransient<PersonnageRapportService>();
         
         // UniversApi Client
         services.AddTransient<IFilmsVenirClient, FilmsVenirClient>();

@@ -11,6 +11,7 @@
       <ProjectReference Include="..\Univers.Application\Univers.Application.csproj" />
       <ProjectReference Include="..\Univers.Data\Univers.Data.csproj" />
       <ProjectReference Include="..\Univers.FilmsService\Univers.FilmsService.csproj" />
+      <ProjectReference Include="..\Univers.RapportService\Univers.RapportService.csproj" />
     </ItemGroup>
 
     <ItemGroup>
